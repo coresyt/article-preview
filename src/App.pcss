@@ -2,31 +2,36 @@
 
 :root {
   --m-sect: 30px;
+  --size-image: 200px;
 }
 
 @layer components {
   main.card {
     margin-top: calc(calc(100vh - calc(20px + var(--height-card))) / 2);
     margin-bottom: calc(calc(100vh - calc(20px + var(--height-card))) / 2);
-    @apply bg-white mx-auto h-[--height-card] w-[320px] overflow-hidden rounded-xl;
+    @apply relative mx-auto h-[--height-card] w-[--width-card] rounded-xl bg-white md:flex;
   }
 
   /* Image */
   main.card > section.image {
-    @apply h-[200px] w-full overflow-hidden object-cover;
+    @apply h-[--size-image] w-full overflow-hidden object-cover md:h-full md:w-[--size-image] md:object-center;
+  }
+
+  main.card > section.image > img {
+    @apply h-full w-full;
   }
 
   /* Information */
   main.card > section.information {
-    @apply h-[calc(var(--height-card)-200px)] pt-[36px];
+    @apply h-[calc(var(--height-card)-200px)] pt-[32px] md:h-full md:w-[calc(var(--width-card)-200px)];
   }
 
   main.card > section.information > h2 {
-    @apply mx-[--m-sect] mb-[18px] text-[1.2em] font-bold leading-6 text-primary-desaturated-dark-blue;
+    @apply mx-[--m-sect] mb-[18px] text-[1.2em] font-bold leading-6 text-primary-desaturated-dark-blue md:w-[380px] md:text-[1.6em] md:leading-8;
   }
 
   main.card > section.information > p {
-    @apply mx-[--m-sect] mb-[--m-sect] w-[250px] text-[0.98em] font-medium text-primary-grayish-blue;
+    @apply mx-[--m-sect] mb-[10px] text-[0.98em] font-medium text-primary-grayish-blue max-md:w-[250px] md:mb-[18px] md:w-[340px];
   }
 
   /* Information > Author Section */
@@ -43,12 +48,12 @@
   }
 
   main.card > section.information > div.author > button {
-    @apply flex h-10 w-10 items-center justify-center rounded-full bg-primary-light-grayish-blue fill-primary-grayish-blue;
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-primary-light-grayish-blue text-primary-grayish-blue;
   }
 
   /* Information > Share Section */
   main.card > section.information > div.share > div {
-    @apply flex items-center justify-center gap-4 text-primary-light-grayish-blue;
+    @apply flex items-center justify-center gap-4 text-primary-light-grayish-blue md:absolute md:right-[-61px] md:top-[148px] md:z-20 md:h-16 md:w-80 md:rounded-xl md:bg-primary-desaturated-dark-blue;
   }
 
   main.card > section.information > div.share > div > h3 {
@@ -57,5 +62,25 @@
 
   main.card > section.information > div.share > button {
     @apply flex h-10 w-10 items-center justify-center rounded-full bg-primary-grayish-blue text-primary-light-grayish-blue;
+  }
+}
+
+@media (768px <= width) {
+  :root {
+    --size-image: 280px;
+    --m-sect: 40px;
+  }
+
+  main.card > section.information > div.share > div.cube {
+    content: '';
+    display: absolute !important;
+    width: 20px;
+    height: 20px;
+    top: 190px;
+    right: 50px;
+    border-radius: 0;
+    transform: rotate(45deg);
+    z-index: 1;
+    background-color: theme(colors.primary.desaturated-dark-blue);
   }
 }

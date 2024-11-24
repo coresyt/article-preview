@@ -17,11 +17,15 @@
 @layer base {
   :root {
     --height-card: 515px;
+    --width-card: 325px;
   }
 
   :root,
+  html,
   body {
     font-size: 13px;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 }
 
@@ -35,8 +39,9 @@
   }
 }
 
-@media (800px <= width) {
+@media (768px <= width) {
   :root {
-    --height-card: 0px;
+    --height-card: 280px;
+    --width-card: 730px;
   }
 }

@@ -7,12 +7,15 @@ import { useState } from 'react'
 import './App.pcss'
 
 export default function App() {
-  const [isShare, setIsShare] = useState(true)
+  const [isShare, setIsShare] = useState(false)
 
   return (
     <>
-      {/* mobile w 325px x h 515px */}
+      {/* mobile  w 325px x h 515px */}
+      {/* desktop w 730px x h 275px */}
       <main className='card'>
+        {/* mobile  w 325px x h 200px */}
+        {/* desktop w 280px x h 280px */}
         <section className='image'>
           <img src={DrawersImage} alt='Drawers image' />
         </section>
@@ -29,7 +32,7 @@ export default function App() {
           <div
             className={clsx(
               isShare === true ? 'hidden' : 'flex',
-              'author mx-[30px] h-[77px] items-center justify-between'
+              'author mx-[--m-sect] h-[77px] items-center justify-between md:h-[80px]'
             )}
           >
             <div>
@@ -45,7 +48,7 @@ export default function App() {
           <div
             className={clsx(
               isShare === false ? 'hidden' : 'flex',
-              'share h-[77px] items-center justify-between bg-primary-desaturated-dark-blue px-[30px]'
+              'share h-[80px] max-md:items-center max-md:justify-between max-md:bg-primary-desaturated-dark-blue max-md:px-[30px] md:pl-[400px] md:pt-[calc(calc(80px-40px)/2)]'
             )}
           >
             <div>
@@ -68,6 +71,7 @@ export default function App() {
                 <Icons.IconPinterest />
               </a>
             </div>
+            <div className='cube'></div>
             <button onClick={() => setIsShare(false)}>
               <Icons.IconShare />
             </button>
