@@ -9,18 +9,18 @@ export default {
     './src/components/**/*.{jsx,js}'
   ],
   theme: {
-    colors: {
-      primary: {
-        'very-dark-grayish-blue': 'rgb(33, 43, 56)',
-        'desaturated-dark-blue': 'rgb(54, 65, 85)',
-        'grayish-blue': 'rgb(152, 163, 182)',
-        'light-grayish-blue': 'rgb(240, 242, 248)'
-      }
-    },
-    fontFamily: {
-      sans: ['Manrope', ...defaultTheme.fontFamily.sans],
-    },
     extend: {
+      colors: {
+        primary: {
+          'very-dark-grayish-blue': 'rgb(33, 43, 56)',
+          'desaturated-dark-blue': 'rgb(54, 65, 85)',
+          'grayish-blue': 'rgb(152, 163, 182)',
+          'light-grayish-blue': 'rgb(240, 242, 248)'
+        }
+      },
+      fontFamily: {
+        sans: ['Manrope', ...defaultTheme.fontFamily.sans],
+      },
     },
   },
   plugins: [],

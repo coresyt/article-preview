@@ -1,0 +1,61 @@
+@tailwind components;
+
+:root {
+  --m-sect: 30px;
+}
+
+@layer components {
+  main.card {
+    margin-top: calc(calc(100vh - calc(20px + var(--height-card))) / 2);
+    margin-bottom: calc(calc(100vh - calc(20px + var(--height-card))) / 2);
+    @apply bg-white mx-auto h-[--height-card] w-[320px] overflow-hidden rounded-xl;
+  }
+
+  /* Image */
+  main.card > section.image {
+    @apply h-[200px] w-full overflow-hidden object-cover;
+  }
+
+  /* Information */
+  main.card > section.information {
+    @apply h-[calc(var(--height-card)-200px)] pt-[36px];
+  }
+
+  main.card > section.information > h2 {
+    @apply mx-[--m-sect] mb-[18px] text-[1.2em] font-bold leading-6 text-primary-desaturated-dark-blue;
+  }
+
+  main.card > section.information > p {
+    @apply mx-[--m-sect] mb-[--m-sect] w-[250px] text-[0.98em] font-medium text-primary-grayish-blue;
+  }
+
+  /* Information > Author Section */
+  main.card > section.information > div.author > div {
+    @apply flex items-center justify-center;
+  }
+
+  main.card > section.information > div.author > div > img {
+    @apply mr-4 h-10 w-10 rounded-full;
+  }
+
+  main.card > section.information > div.author > div > h3 {
+    @apply flex flex-col text-[0.95em] font-bold text-primary-desaturated-dark-blue [&>span]:text-[0.85em] [&>span]:text-primary-grayish-blue;
+  }
+
+  main.card > section.information > div.author > button {
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-primary-light-grayish-blue fill-primary-grayish-blue;
+  }
+
+  /* Information > Share Section */
+  main.card > section.information > div.share > div {
+    @apply flex items-center justify-center gap-4 text-primary-light-grayish-blue;
+  }
+
+  main.card > section.information > div.share > div > h3 {
+    @apply text-[1.15em] font-medium uppercase tracking-[0.3em] text-primary-grayish-blue;
+  }
+
+  main.card > section.information > div.share > button {
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-primary-grayish-blue text-primary-light-grayish-blue;
+  }
+}
